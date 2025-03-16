@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input, select, button { margin-top: 10px; width: 100%; padding: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Temperature Converter</h2>
+    <form action="/convert" method="get">
+        <label for="temp">Enter Temperature:</label>
+        <input type="text" id="temp" name="temp" required>
+
+        <label for="unit">Convert To:</label>
+        <select id="unit" name="unit">
+            <option value="C">Fahrenheit to Celsius</option>
+            <option value="F">Celsius to Fahrenheit</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    <p th:if="${result}" style="margin-top: 20px; font-weight: bold;" th:text="${result}"></p>
+    <p th:if="${error}" style="color: red;" th:text="${error}"></p>
+</div>
+</body>
+</html>
